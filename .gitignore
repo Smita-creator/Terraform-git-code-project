@@ -1,0 +1,12 @@
+# Local .terraform directory (plugins, modules cache)
+.terraform/
+
+# Terraform state files (VERY IMPORTANT to ignore)
+*.tfstate
+*.tfstate.*
+
+# Lock file (OPTIONAL — depends on team practice)
+.terraform.lock.hcl
+
+# documents
+*.doc
