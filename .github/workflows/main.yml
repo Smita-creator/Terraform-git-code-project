@@ -9,6 +9,11 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
 
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ap-south-1
+
     steps:
       # Step 1: Checkout code
       - name: Checkout Repository
@@ -29,6 +34,7 @@ jobs:
         run: terraform plan -out=tfplan
 
       # Step 5: Terraform Apply
+        # ⚠️ Be careful: this auto-deploys on every push
       - name: Terraform Apply
         working-directory: Day1-Samplecode
         run: terraform apply -auto-approve tfplan
